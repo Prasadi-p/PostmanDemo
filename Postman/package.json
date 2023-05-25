@@ -8,6 +8,6 @@
 "testapilocalerror": "newman run DemoBook.postman_collection_error.json -e Local.postman_environment.json -r junit,cli --reporter-junit-export result-tests-local.xml"
 },
 "devDependencies": {
-"newman": "^5.2.2""
+"newman": "^5.2.2"
 }
 }
