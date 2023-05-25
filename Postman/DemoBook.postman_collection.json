@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "0c314f7e-d4ff-461a-a3f2-e6a055ab0621",
+		"name": "DemoBook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27616607",
+		"_collection_link": "https://grey-station-592402.postman.co/workspace/Postmandemo2023~1905f5b2-7c82-4aba-a329-519850cd537b/collection/27616607-0c314f7e-d4ff-461a-a3f2-e6a055ab0621?action=share&creator=27616607&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"pm.expect(pm.response.responseTime).to.be.below(400);});\r",
+							"pm.test(\"Json response is not empty\", function (){\r",
+							"pm.expect(pm.response).to.be.json;});\r",
+							"pm.test(\"Json response userId eq 1\", function (){\r",
+							"var jsonRes = pm.response.json();\r",
+							"pm.expect(jsonRes.userId).to.eq(1);});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/{{PostID}}",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"{{PostID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
